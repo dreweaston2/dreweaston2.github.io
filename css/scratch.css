@@ -1,9 +1,22 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #0f2b47, #ffffff);
+    background: linear-gradient(to bottom, #0f2b47 0%, #87CEEB 50%, #ffffff 100%); /* Blue/white offroad sky-to-snow vibe */
     color: #0f2b47;
     margin: 0;
     line-height: 1.6;
+    position: relative;
+}
+
+body::before { /* Subtle "trail texture" overlay */
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
+    pointer-events: none;
+    z-index: -1;
 }
 
 nav {
@@ -14,7 +27,13 @@ nav {
 nav a { color: #ffffff; text-decoration: none; margin: 0 15px; font-weight: bold; }
 
 header {
-    background: url('../images/offroad-bg.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(15, 43, 71, 0.7), rgba(135, 206, 235, 0.7)), 
+                linear-gradient(45deg, #0f2b47 25%, transparent 25%), 
+                linear-gradient(-45deg, #0f2b47 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #0f2b47 75%), 
+                linear-gradient(-45deg, transparent 75%, #0f2b47 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px 0px, 10px 10px, 0 0, 10px 10px;
     padding: 80px 20px;
     text-align: center;
     color: white;
@@ -24,20 +43,28 @@ header {
 .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
 
 .block {
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 15px;
     border: 2px solid #0f2b47;
+    box-shadow: 0 4px 12px rgba(15, 43, 71, 0.1);
 }
 
-.center-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 20px auto;
-    border-radius: 10px;
+.placeholder-bronco {
+    text-align: center;
+    background: linear-gradient(to bottom, #0f2b47, #87CEEB);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-size: 1.2em;
     border: 3px solid #ffffff;
+}
+
+.bronco-icon {
+    font-size: 4em;
+    margin-bottom: 10px;
 }
 
 .video-wrapper { text-align: center; margin: 30px 0; }
@@ -47,6 +74,8 @@ header {
     color: #0f2b47;
     text-decoration: none;
     font-weight: bold;
+    display: block;
+    text-align: center;
 }
 
 footer {
