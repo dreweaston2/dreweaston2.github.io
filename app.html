@@ -3,54 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drew's Bronco Builder</title>
+    <title>Drew's Dream Bronco Builder</title>
     <style>
-        body {font-family: Arial, sans-serif; text-align:center; background:#0f2b47; color:#ffffff; padding:40px;}
-        h1 {color:#ffffff;}
-        select {padding:10px; font-size:18px; margin:10px; border-radius:5px;}
-        button {padding:15px 30px; font-size:20px; margin:20px; cursor:pointer; border:none; border-radius:10px; background:#ffffff; color:#0f2b47;}
-        #build {font-size:32px; margin:40px; font-weight:bold; color:#ffffff;}
-        .back {margin-top:50px;}
+        body {font-family: 'Arial Black', Arial, sans-serif; text-align:center; background:#0f2b47; color:#fff; padding:20px; margin:0;}
+        h1 {font-size:3em; margin:20px; text-shadow: 3px 3px 10px #000;}
+        .controls {margin:40px; font-size:1.4em;}
+        select, button {padding:15px 25px; font-size:1.3em; margin:10px; border-radius:12px; border:none; cursor:pointer;}
+        button {background:#00ffcc; color:#0f2b47; font-weight:bold;}
+        button:hover {background:#00cc99;}
+        #result {font-size:5em; margin:40px; min-height:120px; text-shadow: 3px 3px 8px #000;}
+        .bronco {font-size:6em; filter:drop-shadow(0 0 15px #00ffcc);}
+        .back {margin:50px;}
+        .back a {color:#00ffcc; font-size:1.3em; text-decoration:none;}
     </style>
 </head>
 <body>
+
     <h1>Build Your Dream Bronco</h1>
-    <div style="text-align:center; margin:20px;">
-  <a href="scratch.html" style="color:white; font-size:1.2em; text-decoration:none;">← Back to Offroading Page</a>
-</div>
-    <p>Pick your favorite color combo (like my blues/whites!)</p>
-    <select id="color1">
-        <option value="Blue">Blue</option>
-        <option value="White">White</option>
-        <option value="Black">Black</option>
-        <option value="Red">Red</option>
-    </select>
-    <select id="color2">
-        <option value="White">White</option>
-        <option value="Blue">Blue</option>
-        <option value="Silver">Silver</option>
-        <option value="Gray">Gray</option>
-    </select>
-    <button onclick="buildBronco()">Generate My Bronco!</button>
-    <div id="build">Your custom Bronco awaits...</div>
-    <div class="back"><a href="scratch.html" style="color:#ffffff;">← Back to Offroading Page</a></div>
+    <div class="controls">
+        Color: 
+        <select id="color">
+            <option>Cactus Gray</option>
+            <option>Velocity Blue</option>
+            <option>Area 51</option>
+            <option>Race Red</option>
+            <option>Oxford White</option>
+            <option>Cyber Orange</option>
+        </select>
+        <button onclick="build()">BUILD IT 🔥</button>
+    </div>
+
+    <div id="result">????</div>
+    <div class="bronco">🚙</div>
+
+    <div class="back">
+        <a href="scratch.html">← Back to Offroading Page</a>
+    </div>
 
     <script>
-        function buildBronco() {
-            const color1 = document.getElementById("color1").value;
-            const color2 = document.getElementById("color2").value;
-            const builds = [
-                "Stick Shift Beast",
-                "Trail Crusher",
-                "Snow Shredder",
-                "Canyon Conqueror",
-                "Open Field Rocket",
-                "BYU Blue Bomber"
-            ];
-            const build = color1 + " & " + color2 + " " + builds[Math.floor(Math.random()*builds.length)];
-            document.getElementById("build").innerText = build;
+        const names = [
+            "The Stick-Shift Slayer", "Cactus Gray Conqueror", "Provo Canyon Crusher",
+            "St. George Sandstorm", "Snowfield Beast Mode", "BYU Blue Bomber",
+            "Utah Trail Terror", "Red Rock Ripper", "The Holy War Hauler"
+        ];
+        function build() {
+            const color = document.getElementById("color").value;
+            const epic = names[Math.floor(Math.random()*names.length)];
+            document.getElementById("result").innerHTML = 
+                color + "<br><span style='font-size:0.7em;'>" + epic + "</span>";
         }
-        buildBronco();
+        build(); // auto-build one on load
     </script>
 </body>
 </html>
