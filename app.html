@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drew's Bronco Builder</title>
+    <style>
+        body {font-family: Arial, sans-serif; text-align:center; background:#0f2b47; color:#ffffff; padding:40px;}
+        h1 {color:#ffffff;}
+        select {padding:10px; font-size:18px; margin:10px; border-radius:5px;}
+        button {padding:15px 30px; font-size:20px; margin:20px; cursor:pointer; border:none; border-radius:10px; background:#ffffff; color:#0f2b47;}
+        #build {font-size:32px; margin:40px; font-weight:bold; color:#ffffff;}
+        .back {margin-top:50px;}
+    </style>
+</head>
+<body>
+    <h1>Build Your Dream Bronco</h1>
+    <p>Pick your favorite color combo (like my blues/whites!)</p>
+    <select id="color1">
+        <option value="Blue">Blue</option>
+        <option value="White">White</option>
+        <option value="Black">Black</option>
+        <option value="Red">Red</option>
+    </select>
+    <select id="color2">
+        <option value="White">White</option>
+        <option value="Blue">Blue</option>
+        <option value="Silver">Silver</option>
+        <option value="Gray">Gray</option>
+    </select>
+    <button onclick="buildBronco()">Generate My Bronco!</button>
+    <div id="build">Your custom Bronco awaits...</div>
+    <div class="back"><a href="scratch.html" style="color:#ffffff;">← Back to Offroading Page</a></div>
+
+    <script>
+        function buildBronco() {
+            const color1 = document.getElementById("color1").value;
+            const color2 = document.getElementById("color2").value;
+            const builds = [
+                "Stick Shift Beast",
+                "Trail Crusher",
+                "Snow Shredder",
+                "Canyon Conqueror",
+                "Open Field Rocket",
+                "BYU Blue Bomber"
+            ];
+            const build = color1 + " & " + color2 + " " + builds[Math.floor(Math.random()*builds.length)];
+            document.getElementById("build").innerText = build;
+        }
+        buildBronco();
+    </script>
+</body>
+</html>
