@@ -1,11 +1,23 @@
+/* =========================
+   Global Base Styles
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #0f2b47, #ffffff); /* Fallback if image fails */
+    background: linear-gradient(to bottom, #0f2b47, #ffffff);
     color: #0f2b47;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
+
+/* =========================
+   Navigation
+   ========================= */
 
 nav {
     background: #0f2b47;
@@ -17,26 +29,36 @@ nav {
 }
 
 nav a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     margin: 0 15px;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.1em;
+    transition: opacity 0.2s ease, text-decoration 0.2s ease;
 }
 
+nav a:hover {
+    opacity: 0.85;
+    text-decoration: underline;
+}
+
+/* =========================
+   Hero / Header
+   ========================= */
+
 header {
-    background: url('../images/offroad-bg.jpg') center/cover no-repeat; /* Your image */
+    background: url('../images/offroad-bg.jpg') center / cover no-repeat;
     padding: 120px 20px;
     text-align: center;
-    color: white;
+    color: #ffffff;
     position: relative;
 }
 
-/* Critical: Dark overlay for readable text */
+/* Dark overlay for text readability */
 header::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    inset: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
@@ -48,58 +70,125 @@ header > * {
 
 header h1 {
     font-size: 3em;
-    margin: 0;
-    text-shadow: 3px 3px 10px #000;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.9);
 }
 
 header p {
     font-size: 1.5em;
-    text-shadow: 2px 2px 8px #000;
+    margin-top: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
+
+/* =========================
+   Layout Containers
+   ========================= */
 
 .container {
     max-width: 1100px;
     margin: 40px auto;
-    padding: 0 20px; /* Prevents text cutoff on phone */
+    padding: 0 20px;
 }
 
 .block {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     padding: 30px;
     margin-bottom: 40px;
     border-radius: 15px;
     border: 3px solid #0f2b47;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
+
+/* =========================
+   Typography
+   ========================= */
+
+h2 {
+    color: #0f2b47;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0f2b47;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* =========================
+   Images
+   ========================= */
 
 .center-img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
     border: 3px solid #0f2b47;
+    margin: 20px 0;
 }
 
-/* Mobile fixes */
+/* =========================
+   Lists
+   ========================= */
+
+ol, ul {
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* =========================
+   Anchors / Utilities
+   ========================= */
+
+.anchor-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+
 @media (max-width: 768px) {
+
     header {
         padding: 80px 15px;
     }
+
     header h1 {
         font-size: 2.2em;
     }
+
     header p {
         font-size: 1.2em;
     }
+
     nav a {
-        margin: 0 8px;
+        margin: 0 10px;
         font-size: 1em;
-        display: block; /* Stack on very small screens if needed */
     }
+
     .container {
         padding: 0 15px;
     }
+
     .block {
         padding: 20px;
+    }
+}
+
+/* Extra-small screens */
+@media (max-width: 480px) {
+
+    nav a {
+        display: block;
+        margin: 10px 0;
     }
 }
