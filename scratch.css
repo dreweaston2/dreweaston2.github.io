@@ -1,12 +1,12 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #0f2b47, #ffffff);
+    background: linear-gradient(to bottom, #0f2b47, #ffffff); /* Fallback if image fails */
     color: #0f2b47;
     margin: 0;
+    padding: 0;
     line-height: 1.6;
 }
 
-/* NAV – already good, just make it sticky and a bit smaller on mobile */
 nav {
     background: #0f2b47;
     padding: 15px;
@@ -15,68 +15,91 @@ nav {
     top: 0;
     z-index: 100;
 }
+
 nav a {
     color: #fff;
     text-decoration: none;
-    margin: 0 12px;
+    margin: 0 15px;
     font-weight: bold;
     font-size: 1.1em;
 }
 
-/* HEADER – the big fix */
 header {
-    background: url('../images/offroad-bg.jpg') center/cover no-repeat; /* keep your image */
-    padding: 120px 20px 80px;
+    background: url('../images/offroad-bg.jpg') center/cover no-repeat; /* Your image */
+    padding: 120px 20px;
     text-align: center;
     color: white;
     position: relative;
 }
 
-/* Dark overlay so text is always readable */
+/* Critical: Dark overlay for readable text */
 header::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.55);   /* ← this is the magic */
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
+
 header > * {
     position: relative;
     z-index: 2;
 }
-header h1 { font-size: 2.8em; margin: 0; text-shadow: 2px 2px 10px #000; }
-header p  { font-size: 1.4em; text-shadow: 1px 1px 8px #000; }
 
-/* CONTAINER & BLOCKS – mobile-friendly */
+header h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 3px 3px 10px #000;
+}
+
+header p {
+    font-size: 1.5em;
+    text-shadow: 2px 2px 8px #000;
+}
+
 .container {
     max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 15px;   /* ← critical for phones */
+    margin: 40px auto;
+    padding: 0 20px; /* Prevents text cutoff on phone */
 }
 
 .block {
-    background: rgba(255,255,255,0.92);
-    padding: 25px;
-    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    margin-bottom: 40px;
     border-radius: 15px;
     border: 3px solid #0f2b47;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* IMAGES – never stretch or blur */
 .center-img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
     border: 3px solid #0f2b47;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* MOBILE SPECIFIC FIXES */
+/* Mobile fixes */
 @media (max-width: 768px) {
-    header { padding: 100px 15px 60px; }
-    header h1 { font-size: 2.2em; }
-    header p  { font-size: 1.2em; }
-    nav a { margin: 0 8px; font-size: 1em; }
-    .block { padding: 20px; }
+    header {
+        padding: 80px 15px;
+    }
+    header h1 {
+        font-size: 2.2em;
+    }
+    header p {
+        font-size: 1.2em;
+    }
+    nav a {
+        margin: 0 8px;
+        font-size: 1em;
+        display: block; /* Stack on very small screens if needed */
+    }
+    .container {
+        padding: 0 15px;
+    }
+    .block {
+        padding: 20px;
+    }
 }
