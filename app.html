@@ -12,29 +12,31 @@
         button {background:#00ffcc; color:#0f2b47; font-weight:bold;}
         button:hover {background:#00cc99;}
         #result {font-size:5em; margin:40px; min-height:120px; text-shadow: 3px 3px 8px #000;}
-        .bronco {font-size:6em; filter:drop-shadow(0 0 15px #00ffcc);}
+        .bronco-img {max-width:90%; height:auto; border-radius:20px; box-shadow:0 0 30px #00ffcc; margin:20px auto;}
+        .bronco-emoji {font-size:6em; filter:drop-shadow(0 0 15px #00ffcc);}
         .back {margin:50px;}
         .back a {color:#00ffcc; font-size:1.3em; text-decoration:none;}
     </style>
 </head>
 <body>
-
     <h1>Build Your Dream Bronco</h1>
     <div class="controls">
-        Color: 
+        Color:
         <select id="color">
-            <option>Cactus Gray</option>
-            <option>Velocity Blue</option>
-            <option>Area 51</option>
-            <option>Race Red</option>
-            <option>Oxford White</option>
-            <option>Cyber Orange</option>
+            <option value="cactus">Cactus Gray</option>
+            <option value="velocity">Velocity Blue</option>
+            <option value="area51">Area 51</option>
+            <option value="red">Race Red</option>
+            <option value="white">Oxford White</option>
+            <option value="orange">Cyber Orange</option>
         </select>
         <button onclick="build()">BUILD IT 🔥</button>
     </div>
 
     <div id="result">????</div>
-    <div class="bronco">🚙</div>
+
+    <img id="broncoImage" class="bronco-img" style="display:none;">
+    <div class="bronco-emoji">🚙</div>
 
     <div class="back">
         <a href="scratch.html">← Back to Offroading Page</a>
@@ -46,13 +48,33 @@
             "St. George Sandstorm", "Snowfield Beast Mode", "BYU Blue Bomber",
             "Utah Trail Terror", "Red Rock Ripper", "The Holy War Hauler"
         ];
+
+        const images = {
+            cactus: "https://i.shgcdn.com/4d072795-136d-4e75-bd34-ad78638ac66d/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
+            velocity: "https://hpe-photos.s3.us-east-2.amazonaws.com/wp-content/uploads/2025/04/Hennessey-2025-Ford-Bronco-Raptor-for-Sale-Velocity-Blue-0112-3.jpg",
+            area51: "https://i.redd.it/8l6q4q27a1mb1.jpg",
+            red: "https://www.focusdailynews.com/wp-content/uploads/2024/02/Bronco-rain.jpg",
+            white: "https://www.bronco6g.com/wp-content/uploads/2021/03/Badlands-Bronco-Oxford-White-4-Door-MIC-Top.jpg",
+            orange: "https://www.chicagomotorcars.com/imagetag/9301/main/l/Used-2021-Ford-Bronco-First-Edition-Advanced-4X4-SUV-Cyber-Orange-Metallic-ONLY-800-Miles!-LOADED-1645559928.jpg"
+        };
+
         function build() {
-            const color = document.getElementById("color").value;
+            const colorKey = document.getElementById("color").value;
+            const colorName = document.getElementById("color").options[document.getElementById("color").selectedIndex].text;
             const epic = names[Math.floor(Math.random()*names.length)];
+
+            // Update text
             document.getElementById("result").innerHTML = 
-                color + "<br><span style='font-size:0.7em;'>" + epic + "</span>";
+                colorName + "<br><span style='font-size:0.7em;'>" + epic + "</span>";
+
+            // Update image
+            const img = document.getElementById("broncoImage");
+            img.src = images[colorKey];
+            img.style.display = "block";
+            img.alt = colorName + " Ford Bronco";
         }
-        build(); // auto-build one on load
+
+        build(); // auto-build on load
     </script>
 </body>
 </html>
