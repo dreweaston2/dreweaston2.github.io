@@ -5,31 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drew Easton | Home</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            max-width: 800px; 
-            margin: 40px auto; 
-            text-align: center; 
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
             background: #f9f9f9;
+            line-height: 1.6;
         }
-        img { 
-            width: 300px; 
-            height: 300px; 
-            border-radius: 50%; 
-            border: 6px solid #0f2b47; 
-            object-fit: cover; 
-            margin: 20px auto; 
-            display: block; 
+        img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 6px solid #0f2b47;
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        h1 { font-size: 2.8em; color: #0f2b47; margin: 10px 0; }
-        p, li { font-size: 1.2em; line-height: 1.7; color: #333; }
-        ul { display: inline-block; text-align: left; margin: 20px 0; }
-        a { color: #0f2b47; font-weight: bold; }
+        h1 { 
+            font-size: 3em; 
+            color: #0f2b47; 
+            margin: 10px 0; 
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #0f2b47;
+            margin: 40px 0 20px;
+        }
+        p, li { 
+            font-size: 1.3em; 
+            color: #333; 
+            max-width: 700px;
+            margin: 15px auto;
+        }
+        ul { 
+            display: inline-block; 
+            text-align: left; 
+            margin: 20px 0; 
+            padding-left: 20px;
+        }
+        a { 
+            color: #0f2b47; 
+            font-weight: bold; 
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .about {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin: 40px auto;
+        }
+        .social {
+            margin: 40px 0;
+            font-size: 1.8em;
+        }
+        .social a {
+            margin: 0 15px;
+            color: #0f2b47;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            img { width: 250px; height: 250px; }
+            p, li { font-size: 1.1em; }
+        }
     </style>
 </head>
 <body>
-
-    <!-- ONE CLEAN NAVIGATION BAR — ONLY THIS ONE! -->
+    <!-- UNIFIED NAVIGATION BAR -->
     <nav style="background:#0f2b47; padding:18px; text-align:center; font-family:Arial, sans-serif;">
         <a href="index.html" style="color:white; margin:0 30px; text-decoration:none; font-weight:bold; font-size:1.2em;">Home</a> |
         <a href="resume.html" style="color:white; margin:0 30px; text-decoration:none; font-weight:bold; font-size:1.2em;">Résumé</a> |
@@ -37,11 +84,18 @@
     </nav>
 
     <img src="drew.jpg" alt="Drew Easton">
-    <h1>Drew Easton</h1>
-    <p>BYU Finance Student • Class of 2028</p>
-    <p>I’m the guy who made a 35-yard field goal at the Holy War halftime and won a car!</p>
 
-    <p><strong>Favorite Sports:</strong></p>
+    <h1>Drew Easton</h1>
+    <p>Finance Student • Brigham Young University • Class of 2028</p>
+    <p><strong>Known for sinking a 35-yard field goal at the Holy War halftime—and winning a car!</strong></p>
+
+    <div class="about">
+        <h2>About Me</h2>
+        <p>I'm a driven finance student with real-world experience in sales, startups, and leadership. Bilingual in English and Spanish, passionate about building connections, tackling challenges, and pursuing adventures—whether that's off-roading in my Bronco, organizing epic trips, or analyzing investment opportunities.</p>
+        <p>When I'm not studying or working, you'll find me on the field playing intramural sports or detailing cars with precision.</p>
+    </div>
+
+    <h2>Favorite Sports</h2>
     <ul>
         <li>Basketball</li>
         <li>Pickleball</li>
@@ -55,5 +109,10 @@
         </a>
     </p>
 
+    <!-- SOCIAL LINKS -->
+    <div class="social">
+        <a href="https://www.linkedin.com/in/drew-easton-7b1217362/" target="_blank">LinkedIn</a>
+        <!-- Add more if you have them, e.g., GitHub, Instagram -->
+    </div>
 </body>
 </html>
